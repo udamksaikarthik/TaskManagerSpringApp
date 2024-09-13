@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title>Task Manager</title>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div class="main_container">
+		<div class="header_container">
+			<h1>Task Manager</h1>
+		</div>
+		<div class="date_container">
+			<h3>Date: <span id="date_id"></span></h3>
+		</div>
+		<div class="tasks_container">
+			<h2>Task Checklist</h2>
+			<ul th:each="task: ${taskList}">
+	          <li th:id="${task.taskId}">
+	            <input
+	              th:type="checkbox"
+	              th:checked="${task.checked}"
+	              th:value="${task.taskName}"
+	              onchange="taskChecked(this)"
+	            />
+	            <p th:classappend = "${task.checked} ? strikethrough : testclass" th:id=" ${task.taskName}" th:text="${task.taskName}">taskName</p>
+	          </li>
+	        </ul>
+		</div>
+		<div class="btns_container">
+			<button class="addTaskBtn" onclick="location.href='/addTask'">Add Task</button>
+			<button class="removeTaskBtn" onclick="location.href='/removeTask'">Remove Task</button>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript" src="/js/index.js"></script>
+</html>

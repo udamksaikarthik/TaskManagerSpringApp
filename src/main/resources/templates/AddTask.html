@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title>Task Manager</title>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div class="main_container">
+		<div class="header_container">
+			<h1>Task Manager</h1>
+		</div>
+		<div class="date_container">
+			<h3>Date: <span id="date_id"></span></h3>
+		</div>
+		<div class="tasks_container">
+			<form method="POST" th:action="@{/addTaskEvent}">
+				<input id="add_task" type="text" placeholder="Enter Task..." name="taskNameToBeAdded"><br>
+				<button class="addTaskBtn" type="submit">Add Task</button>
+			</form>
+		</div>
+		<div class="btns_container">
+			<button class="removeTaskBtn" onclick="location.href='/'">Home</button>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript" src="/js/index.js"></script>
+</html>

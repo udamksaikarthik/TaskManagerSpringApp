@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<title>Task Manager</title>
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div class="main_container">
+		<div class="header_container">
+			<h1>Task Manager</h1>
+		</div>
+		<div class="date_container">
+			<h3>Date: <span id="date_id"></span></h3>
+		</div>
+		<div class="tasks_container">
+			<h2>Select Tasks to delete</h2>
+			<form th:action="@{/removeTaskEvent}" method="POST" class="remove_form_task_container">
+				<div class="form_checklist_container">
+					<ul th:each="task: ${taskList}">
+			          <li th:id="${task.taskId}">
+			            <input
+			              th:type="checkbox"
+			              th:checked="false"
+			              th:value="${task.taskName}"
+			              name = "taskname"
+			            />
+			            <p th:id=" ${task.taskName}" th:text="${task.taskName}">taskName</p>
+			          </li>
+			        </ul>
+				</div>
+				
+		        <div class="form_btn_container">
+					<button class="addTaskBtn" type="submit">Remove Task</button>
+		        </div>
+		     </form>
+		</div>
+		<div class="btns_container">
+			<button class="removeTaskBtn" onclick="location.href='/'">Home</button>
+		</div>
+	</div>	
+</body>
+<script type="text/javascript" src="/js/index.js"></script>
+</html>
