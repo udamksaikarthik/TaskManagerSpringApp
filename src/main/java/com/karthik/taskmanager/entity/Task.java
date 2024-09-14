@@ -6,15 +6,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 
 @Entity
 public class Task {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
-    @SequenceGenerator(name = "user_seq", sequenceName = "user_sequence", initialValue = 10, allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer taskId;
+	private String username;
 	private String taskName;
 	private Boolean checked;
 	private Date taskDate;
@@ -47,6 +46,12 @@ public class Task {
 	}
 	public void setTaskDate(Date taskDate) {
 		this.taskDate = taskDate;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	
 	

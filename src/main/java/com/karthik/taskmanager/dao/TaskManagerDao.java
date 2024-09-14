@@ -1,6 +1,5 @@
 package com.karthik.taskmanager.dao;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -19,11 +18,11 @@ public class TaskManagerDao {
 	
 	private ArrayList<Task> taskList = new ArrayList<>();
 
-	public ArrayList<Task> getTaskList() {
+	public ArrayList<Task> getTaskList(String username) {
 		// TODO Auto-generated method stub
 		System.out.println("Inside getTaskList Method");
 		System.out.println("------------------------------------");
-		taskList = (ArrayList<Task>) taskManagerRepository.findAll();
+		taskList = (ArrayList<Task>) taskManagerRepository.findByUsername(username.trim());
 		Date todayDate = new Date();
 		for (Task task : taskList) {
 			System.out.println("task: "+ task.toString());
@@ -48,7 +47,7 @@ public class TaskManagerDao {
 				}
 			}
 		}
-		taskList = (ArrayList<Task>) taskManagerRepository.findAll();
+		taskList = (ArrayList<Task>) taskManagerRepository.findByUsername(username.trim());
 		System.out.println("------------------------------------");
 		return taskList;
 	}
@@ -58,21 +57,22 @@ public class TaskManagerDao {
 		taskManagerRepository.updateCheckedTask(taskName.trim(), taskCheckedStatus);
 	}
 
-	public void addTaskUpdate(String taskNameToBeAdded) {
+	public void addTaskUpdate(String taskNameToBeAdded, String username) {
 		// TODO Auto-generated method stub
 		Date todayDate = new Date();
 		Task task = new Task();
 		task.setTaskDate(todayDate);
 		task.setTaskName(taskNameToBeAdded);
+		task.setUsername(username.trim());
 		taskManagerRepository.save(task);
 		
 	}
 
-	public void removeTaskUpdate(List<String> selectedTasksToDelete) {
+	public void removeTaskUpdate(List<String> selectedTasksToDelete, String username) {
 		// TODO Auto-generated method stub
 		for (String selectedTaskName : selectedTasksToDelete) {
 			selectedTaskName = selectedTaskName.trim();
-			taskManagerRepository.deleteTaskByTaskName(selectedTaskName);
+			taskManagerRepository.deleteTaskByTaskName(selectedTaskName, username.trim());
 		}
 	}
 	

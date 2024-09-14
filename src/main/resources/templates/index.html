@@ -10,11 +10,15 @@
 	<div class="main_container">
 		<div class="header_container">
 			<h1>Day Tracker</h1>
+			<form action="/logout" method="post">
+			    <button type="submit" class="form_btn_logout">Logout</button>
+			</form>
 		</div>
 		<div class="date_container">
 			<h3>Date: <span id="date_id"></span></h3>
 		</div>
 		<div class="tasks_container">
+			<h2>Welcome, <strong th:text = "${username}">User</strong></h2>
 			<h2>Task Checklist</h2>
 			<ul th:each="task: ${taskList}">
 	          <li th:id="${task.taskId}">

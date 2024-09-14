@@ -7,12 +7,12 @@ import com.karthik.taskmanager.entity.Task;
 
 public interface TaskManagerServiceImpl {
 
-	ArrayList<Task> getTaskList();
+	ArrayList<Task> getTaskList(String string);
 
 	void updateCheckedTask(String taskName, Boolean taskCheckedStatus);
 
-	void addTaskUpdate(String taskNameToBeAdded);
+	void addTaskUpdate(String taskNameToBeAdded, String string);
 
-	void removeTaskUpdate(List<String> selectedTasksToDelete);
+	void removeTaskUpdate(List<String> selectedTasksToDelete, String string);
 
 }

@@ -16,8 +16,8 @@ public class TaskManagerService implements TaskManagerServiceImpl{
 	private TaskManagerDao taskManagerDao;
 
 	@Override
-	public ArrayList<Task> getTaskList() {
-		return taskManagerDao.getTaskList();
+	public ArrayList<Task> getTaskList(String username) {
+		return taskManagerDao.getTaskList(username);
 	}
 
 	@Override
@@ -27,14 +27,14 @@ public class TaskManagerService implements TaskManagerServiceImpl{
 	}
 
 	@Override
-	public void addTaskUpdate(String taskNameToBeAdded) {
-		taskManagerDao.addTaskUpdate(taskNameToBeAdded);
+	public void addTaskUpdate(String taskNameToBeAdded, String username) {
+		taskManagerDao.addTaskUpdate(taskNameToBeAdded, username);
 		
 	}
 
 	@Override
-	public void removeTaskUpdate(List<String> selectedTasksToDelete) {
-		taskManagerDao.removeTaskUpdate(selectedTasksToDelete);
+	public void removeTaskUpdate(List<String> selectedTasksToDelete, String username) {
+		taskManagerDao.removeTaskUpdate(selectedTasksToDelete, username);
 	}
 	
 }

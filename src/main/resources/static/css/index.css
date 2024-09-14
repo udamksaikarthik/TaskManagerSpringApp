@@ -97,7 +97,7 @@ input[type=checkbox] {
 	 display: flex;
 	 flex-direction: column;
 	 align-items: center;
-	 padding: 1em;
+	 /* padding: 1em; */
  }
  form input{
  	margin: 1em 0;
@@ -131,7 +131,23 @@ input[type=checkbox] {
  	margin: 0.5em 0;
  }
  
+ .form_btn_logout{
+ 	position: absolute;
+ 	top: 10px;
+ 	right: 10px;
+ 	font-size: 24px;
+ 	background-color: salmon;
+ 	padding: 1em;
+ }
+ 
  
  @media screen and (max-width: 720px) {
- 	
+ 	.form_btn_logout{
+ 	position: absolute;
+ 	top: 10px;
+ 	right: 10px;
+ 	font-size: 12px;
+ 	background-color: salmon;
+ 	padding: 5px;
+ }
 }
