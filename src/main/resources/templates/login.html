@@ -13,7 +13,8 @@
             font-family: 'Arial', sans-serif;
             background-color: #fceed1;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: space-around;
             align-items: center;
             height: 100vh;
             margin: 0;
@@ -72,14 +73,26 @@
         }
         
         .header_container{
-        	position: absolute;
-        	top: 0;
+        	/* position: absolute;
+        	top: 0; */
         	margin-top: 0.25em;
         	font-size: 2em;
         }
         
         button{
         	margin: 1em 0;
+        }
+        
+        .developer_container button{
+        	color: white;
+        	background-color: #4CAF50;
+        	font-size: 2em;
+        	padding: 12px;
+		    border: none;
+		    border-radius: 5px;
+		    font-size: 16px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
         }
 
         /* Responsive */
@@ -126,5 +139,9 @@
             </div>
         </form>
     </div>
+    
+    <div class="developer_container">
+         <a href="https://udamksaikarthik.github.io/myPortfolio/" target="_blank"><button type="submit">Developer Portfolio</button></a>
+	</div>
 </body>
 </html>

@@ -101,7 +101,7 @@ input[type=checkbox] {
  }
  form input{
  	margin: 1em 0;
- 	font-size: 2em;
+ 	font-size: 1.5em;
  }
  
  .remove_form_task_container{
@@ -139,6 +139,18 @@ input[type=checkbox] {
  	background-color: salmon;
  	padding: 1em;
  }
+ 
+ .developer_container button{
+        	color: white;
+        	background-color: #4CAF50;
+        	font-size: 2em;
+        	padding: 12px;
+		    border: none;
+		    border-radius: 5px;
+		    font-size: 16px;
+		    cursor: pointer;
+		    transition: background-color 0.3s ease;
+        }
  
  
  @media screen and (max-width: 720px) {
