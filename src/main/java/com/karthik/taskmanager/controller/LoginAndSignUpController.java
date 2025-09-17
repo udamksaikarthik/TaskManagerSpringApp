@@ -100,7 +100,7 @@ public class LoginAndSignUpController {
 
         Users user = new Users(userName, email, password);
         userServiceImpl.saveUser(user);
-        mv.setViewName("redirect:/");
+        mv.setViewName("redirect:/dashboard");
 		System.out.println("----------------------------------");
         return mv;
     }
@@ -110,7 +110,7 @@ public class LoginAndSignUpController {
 		System.out.println("---------------------------------------------------------------------------------");
 		System.out.println("LoginUser Method");
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("redirect:/");
+		mv.setViewName("redirect:/dashboard");
 		return mv;
 	}
 	

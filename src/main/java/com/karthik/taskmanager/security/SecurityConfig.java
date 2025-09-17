@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .anyRequest().authenticated() // All other paths require authentication
             )
             .formLogin(form -> form
-            	.defaultSuccessUrl("/", true)
+            	.defaultSuccessUrl("/dashboard", true)
             	.failureHandler(customAuthenticationFailureHandler())
                 .loginPage("/login") // Custom login page
                 .permitAll()

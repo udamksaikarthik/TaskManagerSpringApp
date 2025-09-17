@@ -24,7 +24,7 @@ public class TaskManagerController {
 	
 	private ArrayList<Task> taskList = new ArrayList<>();
 
-	@GetMapping("/")
+	@GetMapping("/dashboard")
 	public ModelAndView handleFirstCall(Principal principal) {
 		System.out.println("Inside handleFirstCall");
 		System.out.println("----------------------------------");
@@ -37,7 +37,7 @@ public class TaskManagerController {
 		return mv;
 	}
 	
-	@GetMapping("/checkedTask")
+	@GetMapping("/dashboard/checkedTask")
 	public ModelAndView updateCheckedTask(
 			@RequestParam(value = "param1", defaultValue = "task") String taskName,
 			@RequestParam(value = "param2", defaultValue = "false") Boolean taskCheckedStatus) {
@@ -46,13 +46,13 @@ public class TaskManagerController {
 		System.out.println("taskName: "+taskName);
 		System.out.println("taskCheckedStatus: "+taskCheckedStatus);
 		taskManagerServiceImpl.updateCheckedTask(taskName, taskCheckedStatus);
-		ModelAndView mv = new ModelAndView("redirect:/");
+		ModelAndView mv = new ModelAndView("redirect:/dashboard");
 		System.out.println("----------------------------------");
 		return mv;
 	}
 	
 
-	@GetMapping("/addTask")
+	@GetMapping("/dashboard/addTask")
 	public ModelAndView showAddTask() {
 		System.out.println("Inside showAddTask");
 		System.out.println("----------------------------------");
@@ -62,7 +62,7 @@ public class TaskManagerController {
 		return mv;
 	}
 	
-	@PostMapping("/addTaskEvent")
+	@PostMapping("/dashboard/addTaskEvent")
 	public ModelAndView addTaskUpdate(
 			@RequestParam("taskNameToBeAdded") String taskNameToBeAdded,
 			Principal principal
@@ -71,12 +71,12 @@ public class TaskManagerController {
 		System.out.println("----------------------------------");
 		System.out.println("taskNameToBeAdded: "+taskNameToBeAdded);
 		taskManagerServiceImpl.addTaskUpdate(taskNameToBeAdded, principal.getName());
-		ModelAndView mv = new ModelAndView("redirect:/");
+		ModelAndView mv = new ModelAndView("redirect:/dashboard");
 		System.out.println("----------------------------------");
 		return mv;
 	}
 	
-	@GetMapping("/removeTask")
+	@GetMapping("/dashboard/removeTask")
 	public ModelAndView showRemoveTask(Principal principal) {
 		System.out.println("Inside showRemoveTask");
 		System.out.println("----------------------------------");
@@ -88,13 +88,13 @@ public class TaskManagerController {
 		return mv;
 	}
 	
-	@PostMapping("/removeTaskEvent")
+	@PostMapping("/dashboard/removeTaskEvent")
 	public ModelAndView removeTaskUpdate(
 			@RequestParam(name = "taskname", required = false) List<String> selectedTasksToDelete,
 			Principal principal) {
 		System.out.println("Inside removeTaskUpdate");
 		System.out.println("----------------------------------");
-        ModelAndView mv = new ModelAndView("redirect:/");
+        ModelAndView mv = new ModelAndView("redirect:/dashboard");
 
         // If no checkboxes are checked, the "selectedTasksToDelete" list will be null
         if (selectedTasksToDelete != null && !selectedTasksToDelete.isEmpty()) {
